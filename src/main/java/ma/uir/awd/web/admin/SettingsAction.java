@@ -44,6 +44,9 @@ public class SettingsAction extends BaseAction {
 
     @Override
     public void validate() {
+        if (checkRole(Role.ADMINISTRATOR) != null) {
+            return;   // pas admin : pas de validation, execute() renverra "login" ou "forbidden"
+        }
         if (vatPercent == null) {
             addFieldError("vatPercent", getText("error.rate.required"));
         }

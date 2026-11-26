@@ -21,6 +21,9 @@ public class ChangeRoleAction extends BaseAction {
 
     @Override
     public void validate() {
+        if (checkRole(Role.ADMINISTRATOR) != null) {
+            return;   // pas admin : pas de validation, execute() renverra "login" ou "forbidden"
+        }
         if (userId == null || newRole == null) {
             addActionError(getText("error.user.notFound"));
         }

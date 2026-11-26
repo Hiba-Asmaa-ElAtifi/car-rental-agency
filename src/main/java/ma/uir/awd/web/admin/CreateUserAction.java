@@ -31,6 +31,9 @@ public class CreateUserAction extends BaseAction {
 
     @Override
     public void validate() {
+        if (checkRole(Role.ADMINISTRATOR) != null) {
+            return;   // pas admin : pas de validation, execute() renverra "login" ou "forbidden"
+        }
         fullName = fullName == null ? "" : fullName.trim();
         email = email == null ? "" : email.trim();
         phone = phone == null ? "" : phone.trim();
