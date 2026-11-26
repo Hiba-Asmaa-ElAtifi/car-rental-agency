@@ -1,4 +1,4 @@
-USE car_rental_v15;
+USE car_rental_agency;
 START TRANSACTION;
 -- 6 rows: vehicle_categories
 INSERT INTO `vehicle_categories` (`id`,`name`,`description`) VALUES (1,'Economy','Small and frugal');
