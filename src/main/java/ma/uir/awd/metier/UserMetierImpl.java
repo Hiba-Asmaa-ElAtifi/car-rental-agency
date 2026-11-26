@@ -24,6 +24,11 @@ public class UserMetierImpl implements IUserMetier {
     }
 
     @Override
+    public List<User> findByRole(Role role) {
+        return userDao.findByRole(role);
+    }
+
+    @Override
     public User findById(Long id) {
         return userDao.findById(id);
     }
