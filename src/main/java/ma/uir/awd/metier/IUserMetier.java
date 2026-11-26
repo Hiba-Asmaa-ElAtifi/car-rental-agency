@@ -10,6 +10,9 @@ public interface IUserMetier {
 
     List<User> findAll();
 
+    /** Les utilisateurs de ce rôle, triés par fullName (ajout v1.1 : la liste de l'admin filtre par rôle). */
+    List<User> findByRole(Role role);
+
     User findById(Long id);
 
     /** Crée un utilisateur de ce rôle (l'admin crée les agents). BusinessException si l'e-mail existe. */
